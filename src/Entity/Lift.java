@@ -7,7 +7,7 @@ public class Lift {
 	private Route route;
 	private Message[] messages;
 	
-	public void Lift(String liftID, String note, Route route, StudentCar driver) {
+	public Lift(String liftID, String note, Route route, StudentCar driver) {
 		this.liftID = liftID;
 		this.note = note;
 		this.route = route;
