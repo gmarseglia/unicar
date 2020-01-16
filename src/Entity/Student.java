@@ -1,14 +1,45 @@
 package Entity;
 
+import java.util.ArrayList;
+
 public class Student extends User {
-	private String name;
-	private String surname;
-	private Profile profile;
-	private WeeklyPreferencies weeklyPreferencies;
-	private Lift[] lifts;
+
+	protected String name;
+	protected String surname;
+	protected Profile profile;
+	
+	//Collection of favorite routes for the week
+	protected WeeklyPreferencies weeklyPreferencies;
+	
+
+	//Collection of active lifts
+	protected ArrayList<Lift> lifts;
+	
+	//Used in the RegistrationController, da mettere in una factory
+	public Student(String userID, String password, String name, String surname) {
+		super(userID, password);
+		this.setName(name);
+		this.setSurname(surname);
+	}
+	
+	//Generated
+	protected Student(String userID, String password, String name, String surname, Profile profile,
+			WeeklyPreferencies weeklyPreferencies, ArrayList<Lift> lifts) {
+		super(userID, password);
+		this.name = name;
+		this.surname = surname;
+		this.profile = profile;
+		this.weeklyPreferencies = weeklyPreferencies;
+		this.lifts = lifts;
+	}
+
+	//Used in removeCar in SetCarInfoController, da mettere in una factory
+	public Student(StudentCar studentCar) {
+		this(studentCar.userID, studentCar.password, studentCar.name, studentCar.surname, studentCar.profile, studentCar.weeklyPreferencies, studentCar.lifts);
+	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -16,7 +47,7 @@ public class Student extends User {
 	}
 
 	public String getSurname() {
-		return surname;
+		return this.surname;
 	}
 
 	public void setSurname(String surname) {
@@ -24,7 +55,7 @@ public class Student extends User {
 	}
 
 	public Profile getProfile() {
-		return profile;
+		return this.profile;
 	}
 
 	public void setProfile(Profile profile) {
@@ -39,20 +70,11 @@ public class Student extends User {
 		this.weeklyPreferencies = weeklyPreferencies;
 	}
 
-	public Lift[] getLifts() {
-		return lifts;
+	public ArrayList<Lift> getLifts() {
+		return this.lifts;
 	}
 
-	public void setLifts(Lift[] lifts) {
-		this.lifts = lifts;
-	}
-
-	public Student(String name, String surname, Profile profile, WeeklyPreferencies weeklyPreferencies, Lift[] lifts) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.profile = profile;
-		this.weeklyPreferencies = weeklyPreferencies;
+	public void setLifts(ArrayList<Lift> lifts) {
 		this.lifts = lifts;
 	}
 		
