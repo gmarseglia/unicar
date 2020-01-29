@@ -1,11 +1,13 @@
 package Entity;
 
+import java.util.ArrayList;
+
 public class Lift {
 	private String liftID;
 	private StudentCar driver;
 	private String note;
 	private Route route;
-	private Message[] messages;
+	private ArrayList<Message> messages;
 	
 	public Lift(String liftID, String note, Route route, StudentCar driver) {
 		this.liftID = liftID;
@@ -14,11 +16,11 @@ public class Lift {
 		this.driver = driver;
 	}
 
-	public Message[] getMessages() {
+	public ArrayList<Message> getMessages() {
 		return messages;
 	}
 
-	public void setMessages(Message[] messages) {
+	public void setMessages(ArrayList<Message> messages) {
 		this.messages = messages;
 	}
 
