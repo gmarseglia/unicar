@@ -43,6 +43,9 @@ public class Student extends User {
 	}
 
 	public void setName(String name) {
+		if(name.length()<1) {
+			return;
+		}
 		this.name = name;
 	}
 
@@ -51,6 +54,9 @@ public class Student extends User {
 	}
 
 	public void setSurname(String surname) {
+		if(surname.length()<1) {
+			return;
+		}
 		this.surname = surname;
 	}
 
@@ -59,6 +65,9 @@ public class Student extends User {
 	}
 
 	public void setProfile(Profile profile) {
+		if(profile == null) {
+			return;
+		}
 		this.profile = profile;
 	}
 
@@ -67,6 +76,9 @@ public class Student extends User {
 	}
 
 	public void setWeeklyPreferencies(WeeklyPreferencies weeklyPreferencies) {
+		if(weeklyPreferencies == null) {
+			return;
+		}
 		this.weeklyPreferencies = weeklyPreferencies;
 	}
 
@@ -75,6 +87,9 @@ public class Student extends User {
 	}
 
 	public void setLifts(ArrayList<Lift> lifts) {
+		if(lifts == null) {
+			return;
+		}
 		this.lifts = lifts;
 	}
 		

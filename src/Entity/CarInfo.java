@@ -33,12 +33,18 @@ public class CarInfo {
 		return model;
 	}
 	public void setModel(String model) {
+		if(model.length()<1) {	
+			return;
+		}
 		this.model = model;
 	}
 	public String getColour() {
 		return colour;
 	}
 	public void setColour(String colour) {
+		if(colour.length()<3) {	//colore più corto = blu - Marco
+			return;
+		}
 		this.colour = colour;
 	}
 }

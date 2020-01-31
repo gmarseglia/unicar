@@ -9,12 +9,18 @@ public class Profile {
 		return email;
 	}
 	public void setEmail(String email) {
+		if(email.length() < 5) {
+			return;
+		}
 		this.email = email;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	public void setPhoneNumber(String phoneNumber) {
+		if(phoneNumber.length() != 10) {
+			return;
+		}
 		this.phoneNumber = phoneNumber;
 	}
 	public String getProfilePic() {

@@ -16,7 +16,10 @@ public class RangeTime {
 	}
 	
 	public void setStartTime(LocalDateTime time) {
-		
+		if(time.isBefore(LocalDateTime.now())) {
+			return;
+		}
+		this.startTime = time;
 	}
 	
 	public LocalDateTime getStopTime() {
@@ -24,6 +27,9 @@ public class RangeTime {
 	}
 	
 	public void setStopTime(LocalDateTime time) {
-		
+		if(time.isBefore(this.startTime)){
+			return;
+		}
+		this.stopTime = time;
 	}
 }

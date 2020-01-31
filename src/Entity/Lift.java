@@ -20,13 +20,17 @@ public class Lift {
 		return messages;
 	}
 
-	public void setMessages(ArrayList<Message> messages) {
-		this.messages = messages;
+	public void addMessage(Message messages) {
+		if(messages == null) {
+			return;
+		}
+		(this.messages).add(messages);
 	}
 
 	public String getLiftID() {
 		return liftID;
 	}
+
 
 	public StudentCar getDriver() {
 		return driver;

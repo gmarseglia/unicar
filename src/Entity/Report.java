@@ -18,6 +18,9 @@ public class Report {
 	}
 
 	public void setMessage(String message) {
+		if(message.length()<1) {
+			return;
+		}
 		this.message = message;
 	}
 
@@ -26,6 +29,9 @@ public class Report {
 	}
 
 	public void setTarget(StudentCar target) {
+		if(target == null) {
+			return;
+		}
 		this.target = target;
 	}
 
@@ -42,6 +48,9 @@ public class Report {
 	}
 
 	public void setHandler(Admin handler) {
+		if(handler == null) {
+			return;
+		}
 		this.handler = handler;
 	}
 	

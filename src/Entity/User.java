@@ -19,6 +19,9 @@ public abstract class User {
 	}
 	
 	public void setPassword(String password) {
+		if(password.length()<1) {
+			return;
+		}
 		this.password = password;
 	}
 	
@@ -27,6 +30,9 @@ public abstract class User {
 	}
 	
 	public void setUserID(String userID) {
+		if(userID.length()<1) {
+			return;
+		}
 		this.userID = userID;
 	}
 	

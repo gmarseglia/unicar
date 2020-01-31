@@ -29,22 +29,30 @@ public class StudentCar extends Student {
 	}
 
 	public void updateRating(int vote) {
+		if((vote != 1) || (vote != -1)) {
+			return;
+		}
 		this.rating += vote;
 	}
 
 	public int getRating() {
 		return rating;
 	}
-
+	
+/* HA SENSO METTERLO? PER ME NO - Marco
+ * 
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-
+*/
 	public CarInfo getCarInfo() {
 		return carInfo;
 	}
 
 	public void setCarInfo(CarInfo carInfo) {
+		if(carInfo == null) {
+			return;
+		}
 		this.carInfo = carInfo;
 	}
 
@@ -52,8 +60,15 @@ public class StudentCar extends Student {
 		return reports;
 	}
 
-	public void setReports(ArrayList<Report> reports) {
-		this.reports = reports;
+	public void addReport(Report report) {
+		if(report == null) {
+			return;
+		}
+		(this.reports).add(report);
 	}
 
+	public void removeReport(Report report) {
+		(this.reports).remove(report);
+	}
+	
 }
