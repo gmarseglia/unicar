@@ -1,7 +1,6 @@
 package Entity;
 
 import java.util.ArrayList;
-import Bean.CarInfoBean;
 
 public class StudentCar extends Student {
 
@@ -81,5 +80,12 @@ public class StudentCar extends Student {
 	public void removeReport(Report report) {
 		(this.reports).remove(report);
 	}
+
+	@Override
+	public String toString() {
+		return super.toString()  + ", " + "StudentCar [rating=" + rating + ", carInfo=" + carInfo + ", reports=" + reports + "]";
+	}
+	
+	
 	
 }
