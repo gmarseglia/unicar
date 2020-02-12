@@ -9,23 +9,34 @@ public class StudentCar extends Student {
 	private CarInfo carInfo;
 	private ArrayList<Report> reports;
 
-	public boolean isAvailable(Route route) {
-		return true;
-	}
-	
-	//Usato in setCarInfoController, da mettere in una factory
-	//Da implementare
-	public StudentCar(Student student, CarInfoBean carInfoBean) {
-		super(student.userID, student.password, student.name, student.surname);
-	}
-
-	//generated
-	public StudentCar(String userID, String password, String name, String surname, int rating, CarInfo carInfo,
+	/**
+	 * @param userID
+	 * @param password
+	 * @param name
+	 * @param surname
+	 * @param profile
+	 * @param weeklyPreferencies
+	 * @param lifts
+	 * @param rating
+	 * @param carInfo
+	 * @param reports
+	 */
+	public StudentCar(String userID, String password, String name, String surname, Profile profile,
+			WeeklyPreferencies weeklyPreferencies, ArrayList<Lift> lifts, int rating, CarInfo carInfo,
 			ArrayList<Report> reports) {
-		super(userID, password, name, surname);
+		super(userID, password, name, surname, profile, weeklyPreferencies, lifts);
 		this.rating = rating;
 		this.carInfo = carInfo;
 		this.reports = reports;
+	}
+	
+	//Costruttore che usa lo student
+	public StudentCar(Student student, int rating, CarInfo carInfo, ArrayList<Report> reports) {
+		this(student.userID, student.password, student.name, student.surname, student.profile, student.weeklyPreferencies, student.lifts, rating, carInfo, reports);
+	}
+
+	public boolean isAvailable(Route route) {
+		return true;
 	}
 
 	public void updateRating(int vote) {

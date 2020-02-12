@@ -1,6 +1,5 @@
 package Entity;
 
-//Non so se l'abstract ce sta
 public abstract class User {
 	//Matriculation number, used for login
 	protected String userID;

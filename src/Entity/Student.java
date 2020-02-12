@@ -7,23 +7,13 @@ public class Student extends User {
 	protected String name;
 	protected String surname;
 	protected Profile profile;
-	
 	//Collection of favorite routes for the week
 	protected WeeklyPreferencies weeklyPreferencies;
-	
-
 	//Collection of active lifts
 	protected ArrayList<Lift> lifts;
-	
-	//Used in the RegistrationController, da mettere in una factory
-	public Student(String userID, String password, String name, String surname) {
-		super(userID, password);
-		this.setName(name);
-		this.setSurname(surname);
-	}
-	
+
 	//Generated
-	protected Student(String userID, String password, String name, String surname, Profile profile,
+	public Student(String userID, String password, String name, String surname, Profile profile,
 			WeeklyPreferencies weeklyPreferencies, ArrayList<Lift> lifts) {
 		super(userID, password);
 		this.name = name;
@@ -33,11 +23,11 @@ public class Student extends User {
 		this.lifts = lifts;
 	}
 
-	//Used in removeCar in SetCarInfoController, da mettere in una factory
+	//Costruttore che parte dello studentCar
 	public Student(StudentCar studentCar) {
 		this(studentCar.userID, studentCar.password, studentCar.name, studentCar.surname, studentCar.profile, studentCar.weeklyPreferencies, studentCar.lifts);
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -92,5 +82,14 @@ public class Student extends User {
 		}
 		this.lifts = lifts;
 	}
-		
+
+	//Generato automaticamente
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", surname=" + surname + ", profile=" + profile + ", weeklyPreferencies="
+				+ weeklyPreferencies + ", lifts=" + lifts + "]";
+	}
+	
+	
+
 }
